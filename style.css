@@ -1,0 +1,69 @@
+     :root {
+            --bg: #0f0f13;
+            --surface: #1c1c21;
+            --surface-alt: #2a2a32;
+            --text: #e2e2e9;
+            --text-muted: #8e8e9f;
+            --accent: #00ffcc;
+            --accent-hover: #00ccaa;
+            --favorite: #ffaa00;
+            --danger: #ff4444;
+            
+            /* Cube Colors */
+            --c-u: #ffd500; 
+            --c-f: #b71234; 
+            --c-r: #0046ad; 
+            --c-b: #ff5800; 
+            --c-l: #009b48; 
+            --c-x: #222222; 
+        }
+
+        body { margin: 0; font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif; background-color: var(--bg); color: var(--text); padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        #app { width: 100%; max-width: 1100px; }
+
+        /* Navigation */
+        .nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; background: var(--surface); padding: 20px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); flex-wrap: wrap; gap: 15px; }
+        .nav h1 { margin: 0; color: var(--accent); font-size: 1.8rem; letter-spacing: -1px; }
+        .nav-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+        .nav-buttons button { background-color: transparent; color: var(--text-muted); border: 2px solid var(--surface-alt); padding: 8px 18px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.2s ease; }
+        .nav-buttons button:hover { border-color: var(--text); color: var(--text); }
+        .nav-buttons button.active-filter { border-color: var(--accent); color: var(--accent); background: rgba(0, 255, 204, 0.1); }
+        .nav-buttons button.primary { background-color: var(--accent); color: #000; border: 2px solid var(--accent); margin-left: auto; }
+        .nav-buttons button.primary:hover { background-color: var(--accent-hover); border-color: var(--accent-hover); }
+
+        /* Library Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+        .card { background-color: var(--surface); border-radius: 12px; padding: 24px; display: flex; flex-direction: column; align-items: center; border: 1px solid var(--surface-alt); transition: transform 0.2s, box-shadow 0.2s; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); border-color: #3a3a45; }
+        .card-header { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+        .card-title { font-weight: 700; font-size: 1.2rem; }
+        .card-category { font-size: 0.75rem; color: var(--accent); width: 100%; text-align: left; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1.5px;}
+        .fav-btn { background: none; border: none; font-size: 1.5rem; color: var(--surface-alt); cursor: pointer; padding: 0; transition: color 0.2s; }
+        .fav-btn.active { color: var(--favorite); }
+        .fav-btn:hover { color: #fff; }
+        .alg-text { margin-top: 20px; font-family: monospace; font-size: 14px; color: var(--text-muted); text-align: center; min-height: 40px; line-height: 1.4;}
+        .train-btn { width: 100%; margin-top: 15px; background-color: var(--surface-alt); color: var(--text); border: none; padding: 12px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        .train-btn:hover { background-color: var(--accent); color: #000; }
+
+        /* Cube Visualizer */
+        .cube-visualizer { display: grid; grid-template-columns: 14px 40px 40px 40px 14px; grid-template-rows: 14px 40px 40px 40px 14px; gap: 2px; background: #000; padding: 6px; border-radius: 8px; box-shadow: inset 0 0 10px rgba(0,0,0,0.8); }
+        .sticker { background-color: var(--c-x); border-radius: 3px; box-shadow: inset 0 0 4px rgba(0,0,0,0.3); }
+        .sticker.hidden { background: transparent; box-shadow: none; }
+
+        /* Trainer View */
+        #trainer-view { display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 70vh; text-align: center; }
+        .flashcard { background-color: var(--surface); padding: 50px; border-radius: 20px; width: 100%; max-width: 650px; display: flex; flex-direction: column; align-items: center; gap: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); border: 1px solid var(--surface-alt); }
+        .timer-display { font-family: monospace; font-size: 4rem; font-weight: bold; color: var(--text); margin: 10px 0; font-variant-numeric: tabular-nums; }
+        .timer-display.running { color: var(--accent); text-shadow: 0 0 15px rgba(0, 255, 204, 0.4); }
+        .trainer-header { width: 100%; display: flex; justify-content: space-between; align-items: center; }
+        .trainer-alg-name { font-size: 1.8rem; color: var(--accent); font-weight: 800; }
+        .trainer-alg-category { font-size: 0.9rem; color: var(--bg); background: var(--text-muted); padding: 4px 10px; border-radius: 4px; font-weight: bold;}
+        .trainer-scramble-box { background-color: var(--bg); padding: 20px; border-radius: 12px; width: 100%; box-sizing: border-box; border: 1px solid var(--surface-alt); }
+        .trainer-scramble-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; font-weight: bold;}
+        .trainer-scramble-text { font-family: monospace; font-size: 1.4rem; color: var(--text); line-height: 1.4; }
+        #trainer-cube-container { transform: scale(1.4); margin: 30px 0; }
+        .trainer-notation { font-size: 1.6rem; font-family: monospace; color: var(--favorite); visibility: hidden; min-height: 40px; display: flex; align-items: center; justify-content: center; }
+        .status-badge { background: var(--surface-alt); padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: bold; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;}
+        .status-badge.ready { background: var(--accent); color: #000; box-shadow: 0 0 10px rgba(0,255,204,0.5); }
+        .instructions { margin-top: 30px; color: var(--text-muted); font-size: 1rem; line-height: 1.6; }
+        .key-btn { background: var(--surface-alt); border: 1px solid #444; padding: 2px 8px; border-radius: 4px; font-family: monospace; color: #fff;}

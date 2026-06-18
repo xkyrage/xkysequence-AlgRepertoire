@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="style.css">
+    <title>Xkysequence - AlgsRepertoire Pro</title>
+    
+</head>
+<body>
+
+    <div id="app">
+        <div class="nav">
+            <h1>Xkysequence<span style="color:var(--text);">.</span></h1>
+            <div class="nav-buttons">
+                <button id="nav-all" onclick="app.renderLibrary('all')">All Algs</button>
+                <button id="nav-pll" onclick="app.renderLibrary('PLL')">PLL (21)</button>
+                <button id="nav-oll" onclick="app.renderLibrary('OLL')">OLL (57)</button>
+                <button id="nav-cmll" onclick="app.renderLibrary('CMLL')">CMLL (42)</button>
+                <button id="nav-favorites" onclick="app.renderLibrary('favorites')">Favorites ★</button>
+                <button class="primary" id="btn-train-current" onclick="app.startTraining('current')">Train This Set</button>
+            </div>
+        </div>
+
+        <div id="library-view" class="grid"></div>
+
+        <div id="trainer-view">
+            <div class="flashcard">
+                <div class="trainer-header">
+                    <div class="trainer-alg-name" id="trainer-name">T Perm</div>
+                    <div class="trainer-alg-category" id="trainer-category">PLL</div>
+                </div>
+                <div class="trainer-scramble-box">
+                    <div class="trainer-scramble-label">Setup Scramble</div>
+                    <div class="trainer-scramble-text" id="trainer-scramble">Loading...</div>
+                </div>
+                <div id="trainer-cube-container"></div>
+                <div class="status-badge" id="trainer-status">Scrambling...</div>
+                <div class="timer-display" id="timer-display">0.00</div>
+                <div class="trainer-notation" id="trainer-notation">R U R' U' R' F R2 U' R' U' R U R' F'</div>
+            </div>
+            <div class="instructions">
+                <span class="key-btn">Spacebar</span> Flow: <strong>Ready</strong> ➔ <strong>Start Timer</strong> ➔ <strong>Stop & Reveal</strong> ➔ <strong>Next</strong><br>
+                <button onclick="app.exitTraining()" style="margin-top: 25px; background: transparent; border: 2px solid var(--danger); color: var(--danger); padding: 8px 20px; font-weight: bold; border-radius: 6px; cursor: pointer; transition: 0.2s;">Exit Training</button>
+            </div>
+        </div>
+    </div>
+
+      <script src="script.js"></script>
+</body>
+</html>
